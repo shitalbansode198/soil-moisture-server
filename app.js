@@ -4,7 +4,6 @@ const app = express();
 const url = require('url');
 const connectDB = require('./DBConfig');
 const { Data } = require('./model');
-const port = 8000;
 
 connectDB();
 
@@ -46,6 +45,13 @@ app.get('/set', async (req, res) => {
     })
 })
 
-app.listen(port, () => {
+app.get('/', async (req, res) => {
+    res.status(200);
+    res.json({
+        res: "All OK."
+    })
+})
+
+app.listen(process.env.PORT || 5000, () => {
     console.log("Server Up.");
 })
