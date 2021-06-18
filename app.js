@@ -4,8 +4,10 @@ const app = express();
 const url = require('url');
 const connectDB = require('./DBConfig');
 const { Data } = require('./model');
-
+const cors = require('cors');
 connectDB();
+
+app.use(cors())
 
 app.get('/get', async (req, res) => {
     
