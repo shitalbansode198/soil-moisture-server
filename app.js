@@ -24,7 +24,7 @@ app.get('/get', async (req, res) => {
 });
 
 app.get('/set', async (req, res) => {
-    const _url = new URL(`${req.hostname}:${port}${req.url}`);
+    const _url = new URL(`${req.hostname}:${process.env.PORT}${req.url}`);
     const  params = _url.searchParams;
     const value = params.get('value');
     const id = "1";
